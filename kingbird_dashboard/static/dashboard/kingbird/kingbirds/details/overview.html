@@ -1,0 +1,16 @@
+<div ng-controller="horizon.dashboard.kingbird.kingbirds.OverviewController as ctrl">
+  <div class="row">
+    <div class="col-md-12 detail">
+      <h3 translate>Kingbird</h3>
+      <hr>
+      <hz-resource-property-list
+        resource-type-name="OS::kingbird_dashboard::Kingbird"
+        cls="dl-horizontal"
+        item="ctrl.kingbird"
+        property-groups="[['name', 'description', 'enabled'],
+                          ['size', 'temperature', 'base', 'flavor', 'topping'],
+                          ['id', 'created_at', 'updated_at']]">
+      </hz-resource-property-list>
+    </div>
+  </div>
+</div>
