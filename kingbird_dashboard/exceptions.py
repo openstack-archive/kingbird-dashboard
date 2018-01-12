@@ -1,3 +1,5 @@
+# Copyright (c) 2018 Ericsson AB.
+#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -10,12 +12,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-# The slug of the panel to be added to HORIZON_CONFIG. Required.
-PANEL = 'kingbirds'
-# The slug of the panel group the PANEL is associated with.
-PANEL_GROUP = 'kingbird'
-# The slug of the dashboard the PANEL associated with. Required.
-PANEL_DASHBOARD = 'kingbird'
+from kingbirdclient import exceptions as kb_exception
 
-# Python panel class of the PANEL to be added.
-ADD_PANEL = 'kingbird_dashboard.content.kingbirds.panel.Kingbirds'
+from openstack_dashboard import exceptions
+
+
+NOT_FOUND = exceptions.NOT_FOUND
+RECOVERABLE = exceptions.RECOVERABLE + (kb_exception.APIException,)
+UNAUTHORIZED = exceptions.UNAUTHORIZED
