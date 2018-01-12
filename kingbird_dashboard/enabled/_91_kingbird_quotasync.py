@@ -1,3 +1,6 @@
+# Copyright (c) 2018 Ericsson AB.
+# All Rights Reserved.
+#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -10,12 +13,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-# The slug of the panel to be added to HORIZON_CONFIG. Required.
-PANEL = 'kingbirds'
-# The slug of the panel group the PANEL is associated with.
-PANEL_GROUP = 'kingbird'
-# The slug of the dashboard the PANEL associated with. Required.
+# The slug of the panel group to be added to HORIZON_CONFIG. Required.
+PANEL_GROUP = 'default'
+
+# The display name of the PANEL_GROUP. Required.
+PANEL = 'quota_management'
+
+# The slug of the dashboard the PANEL_GROUP associated with. Required.
 PANEL_DASHBOARD = 'kingbird'
 
-# Python panel class of the PANEL to be added.
-ADD_PANEL = 'kingbird_dashboard.content.kingbirds.panel.Kingbirds'
+# Python panel class of the PANEL to be added
+ADD_PANEL = 'kingbird_dashboard.quota_management.panel.QuotaManagement'

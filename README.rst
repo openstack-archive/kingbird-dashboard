@@ -53,8 +53,9 @@ Install Kingbird Dashboard with all dependencies in your virtual environment::
 
 And enable it in Horizon::
 
-    ln -s ../kingbird-dashboard/kingbird_dashboard/enabled/_90_project_kingbird_panelgroup.py openstack_dashboard/local/enabled
-    ln -s ../kingbird-dashboard/kingbird_dashboard/enabled/_91_project_kingbird_kingbirds_panel.py openstack_dashboard/local/enabled
+    ln -s ../kingbird-dashboard/kingbird_dashboard/enabled/_90_kingbird.py openstack_dashboard/local/enabled
+    ln -s ../kingbird-dashboard/kingbird_dashboard/enabled/_91_kingbird_quotasync.py openstack_dashboard/local/enabled
+    ln -s ../kingbird-dashboard/kingbird_dashboard/enabled/_92_kingbird_resourcesync.py openstack_dashboard/local/enabled
 
 To run horizon with the newly enabled Kingbird Dashboard plugin run::
 
