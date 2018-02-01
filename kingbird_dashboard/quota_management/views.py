@@ -13,6 +13,7 @@
 #    under the License.
 
 from django.conf import settings
+from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
@@ -21,6 +22,7 @@ from horizon import forms
 from horizon import messages
 from horizon import tables
 
+from kingbird_dashboard.api import client as kb_client
 from kingbird_dashboard.quota_management import forms as kb_forms
 from kingbird_dashboard.quota_management import tables as kb_tables
 
@@ -142,3 +144,19 @@ class DeleteQuotaView(forms.ModalFormView):
 
     def get_initial(self, **kwargs):
         return {'project_id': self.kwargs['project_id']}
+
+
+class DetailQuotaView(tables.DataTableView):
+    table_id = "quota_info"
+    table_class = kb_tables.QuotaDetailTable
+    template_name = 'kingbird/quota_management/detail.html'
+
+    def get_data(self, **kwargs):
+        try:
+            project_id = self.kwargs['project_id']
+            response = kb_client.detail_quota(self.request, project_id)
+            return response
+        except Exception:
+            msg = _('Unable to get details')
+            redirect = reverse('horizon:kingbird:quota_management:index')
+            exceptions.handle(self.request, msg, redirect=redirect)

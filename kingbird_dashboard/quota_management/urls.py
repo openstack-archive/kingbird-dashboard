@@ -25,4 +25,6 @@ urlpatterns = [
     url(PROJECT_ID % 'sync', views.SyncQuotaView.as_view(), name='sync'),
     url(PROJECT_ID % 'delete', views.DeleteQuotaView.as_view(),
         name='delete'),
+    url(PROJECT_ID % 'detail', views.DetailQuotaView.as_view(),
+        name='detail'),
 ]

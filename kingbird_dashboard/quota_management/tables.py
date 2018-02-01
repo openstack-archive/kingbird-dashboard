@@ -48,6 +48,7 @@ class TenantsTable(tables.DataTable):
     id = tables.Column(
         "id",
         verbose_name=_("Project ID"),
+        link="horizon:kingbird:quota_management:detail"
     )
     enabled = tables.Column(
         "enabled",
@@ -61,3 +62,26 @@ class TenantsTable(tables.DataTable):
         name = "tenant_set"
         verbose_name = _("Quota Management")
         row_actions = (UpdateQuota, QuotaSync, DeleteQuota)
+
+
+class QuotaDetailTable(tables.DataTable):
+
+    quota = tables.Column(
+        "_data",
+        verbose_name=_("Quota")
+    )
+    usage = tables.Column(
+        "_Usage",
+        verbose_name=_("Usage")
+    )
+    limit = tables.Column(
+        "_Limit",
+        verbose_name=_("Limit"),
+    )
+
+    def get_object_id(self, datum):
+        return datum._data
+
+    class Meta(object):
+        name = "quota_info"
+        verbose_name = _("Quota Information")
