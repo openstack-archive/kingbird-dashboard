@@ -1,3 +1,5 @@
+# Copyright 2018 Ericsson AB.
+#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -11,13 +13,14 @@
 #    under the License.
 
 from django.utils.translation import ugettext_lazy as _
+
 import horizon
 
-# This panel will be loaded from horizon, because specified in enabled file.
-# To register REST api, import below here.
-from kingbird_dashboard.api import rest_api  # noqa: F401
+from kingbird_dashboard import dashboard
 
 
-class Kingbirds(horizon.Panel):
-    name = _("Kingbirds")
-    slug = "kingbirds"
+class QuotaManagement(horizon.Panel):
+    name = _("Quota Management")
+    slug = 'quota_management'
+
+dashboard.Kingbird.register(QuotaManagement)

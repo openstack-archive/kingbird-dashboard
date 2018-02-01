@@ -22,5 +22,11 @@ PANEL = 'quota_management'
 # The slug of the dashboard the PANEL_GROUP associated with. Required.
 PANEL_DASHBOARD = 'kingbird'
 
-# Python panel class of the PANEL to be added
+# Python panel class of the PANEL to be added.
 ADD_PANEL = 'kingbird_dashboard.quota_management.panel.QuotaManagement'
+
+# Static CSS files to be added to Kingbird.
+ADD_SCSS_FILES = ['dashboard/kingbird_dashboard/css/style.css']
+
+AUTO_DISCOVER_STATIC_FILES = True
+
