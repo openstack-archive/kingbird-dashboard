@@ -1,3 +1,5 @@
+# Copyright 2018 Ericsson AB.
+#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -10,11 +12,22 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import url
 from django.utils.translation import ugettext_lazy as _
-from horizon.browsers import views
 
-title = _("Kingbirds")
-urlpatterns = [
-    url('', views.AngularIndexView.as_view(title=title), name='index'),
-]
+import horizon
+
+from kingbird_dashboard.default import panel
+
+
+class Kingbird(horizon.Dashboard):
+    name = _("Kingbird")
+    slug = "kingbird"
+    panels = (
+        'default'
+        'resource management',
+        'quota management')
+    default_panel = "default"
+
+
+horizon.register(Kingbird)
+Kingbird.register(panel.Default)
