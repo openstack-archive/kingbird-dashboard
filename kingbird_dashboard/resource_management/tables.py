@@ -18,6 +18,22 @@ from horizon import tables
 from kingbird_dashboard.api import client as kb_client
 
 
+class SyncJobCreate(tables.LinkAction):
+    name = "sync_job"
+    verbose_name = _("Create Sync Job")
+    url = "horizon:kingbird:resource_management:create_sync_job"
+    classes = ("ajax-modal",)
+    icon = "plus"
+
+
+class SyncTemplateCreate(tables.LinkAction):
+    name = "sync_template"
+    verbose_name = _("Create Sync Template")
+    url = "horizon:kingbird:resource_management:create_sync_template"
+    classes = ("ajax-modal",)
+    icon = "plus"
+
+
 class DeleteSyncJob(tables.DeleteAction):
 
     @staticmethod
@@ -110,6 +126,8 @@ class ResourceSyncTable(tables.DataTable):
         name = "job_set"
         verbose_name = _("Resource Management")
         table_actions = (
-            DeleteSyncJob,
+            SyncJobCreate,
+            SyncTemplateCreate,
+            DeleteSyncJob
         )
         row_actions = (DeleteSyncJob,)

@@ -1,0 +1,7 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% block form_attrs %}enctype="multipart/form-data"{% endblock %}
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% trans "Upload a template containing resource-set with extension .yaml/.yml/.json to sync more than one resource-type to multiple target regions." %}</p>
+{% endblock %}

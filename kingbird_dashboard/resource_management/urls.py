@@ -25,4 +25,11 @@ SYNCJOB = r'^(?P<job_id>[^/]+)/%s$'
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(SYNCJOB % 'detail', views.DetailView.as_view(), name='detail'),
+    url(r'^create_sync_job$', views.CreateSyncJobView.as_view(),
+        name='create_sync_job'),
+    url(r'^create_sync_template$', views.CreateSyncTemplateView.as_view(),
+        name='create_sync_template'),
+    url(r'^load_flavors$', views.load_flavors, name='load_flavors'),
+    url(r'^load_keypairs$', views.load_keypairs, name='load_keypairs'),
+    url(r'^load_images$', views.load_images, name='load_images'),
 ]
