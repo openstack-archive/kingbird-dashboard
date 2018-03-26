@@ -1,0 +1,7 @@
+{% for resource in resources %}
+    {% if forloop.first %}
+        <option value="{{ resource }}" selected>{{ resource }}</option>
+    {% else %}
+        <option value="{{ resource }}">{{ resource }}</option>
+    {% endif %}
+{% endfor %}
