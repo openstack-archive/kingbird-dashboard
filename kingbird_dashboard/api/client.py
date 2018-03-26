@@ -22,6 +22,10 @@ from kingbirdclient.api import client as kb_client
 
 SERVICE_TYPE = 'synchronization'
 
+NOVA_API_VERSION = "2.37"
+
+GLANCE_API_VERSION = "2"
+
 
 @memoized.memoized
 def kingbird_dashboardclient(request):
@@ -75,3 +79,21 @@ def detail_quota(request, target_tenant_id):
             quota_detail(target_tenant_id)
     except kingbirdclient.exceptions.APIException:
         raise
+
+
+def sync_list(request, action=None):
+    """List the sync jobs."""
+    return kingbird_dashboardclient(request).sync_manager.\
+        list_sync_jobs(action)
+
+
+def sync_job_detail(request, job_id):
+    """Detail information of sync job."""
+    return kingbird_dashboardclient(request).sync_manager.\
+        sync_job_detail(job_id)
+
+
+def sync_delete(request, job_id):
+    """Delete sync jobs from database."""
+    return kingbird_dashboardclient(request).sync_manager.\
+        delete_sync_job(job_id)
