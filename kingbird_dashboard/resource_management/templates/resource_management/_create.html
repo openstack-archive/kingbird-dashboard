@@ -1,0 +1,41 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% block form_attrs %}enctype="multipart/form-data"{% endblock %}
+{% block modal-body-right %}
+  <script>
+  $(document).ready(function(){
+    $("#create_sync_job #id_source").change(function() { 
+        var source = $(this).val();
+        $.ajax({                     
+        url: "load_flavors",
+        data: {
+          'source': source      
+        },
+        success: function (data) {   
+          $("#id_flavors").html(data); 
+        }
+        });
+        $.ajax({                     
+        url: "load_keypairs",
+        data: {
+          'source': source      
+        },
+        success: function (data) {   
+          $("#id_keypairs").html(data); 
+        }
+        });
+        $.ajax({                     
+        url: "load_images",
+        data: {
+          'source': source      
+        },
+        success: function (data) {   
+          $("#id_images").html(data); 
+        }
+        });
+    });
+  });
+  </script>
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% trans "Select the resources for a resource-type to sync the job from source region to multiple target regions." %}</p>
+{% endblock %}
