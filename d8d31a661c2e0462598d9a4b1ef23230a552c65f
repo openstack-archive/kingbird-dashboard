@@ -1,0 +1,8 @@
+Code-Review+2: Lakshmi Prasanna Goutham Pratapa <lakshmi.pratapa@imaginea.com>
+Workflow+1: Lakshmi Prasanna Goutham Pratapa <lakshmi.pratapa@imaginea.com>
+Verified+2: Zuul
+Submitted-by: Zuul
+Submitted-at: Wed, 25 Jul 2018 14:35:29 +0000
+Reviewed-on: https://review.openstack.org/585703
+Project: openstack/kingbird-dashboard
+Branch: refs/heads/stable/rocky
