@@ -5,7 +5,7 @@ Kingbird Dashboard
 User Interface for Kingbird
 
 * Free software: Apache license
-* Source: http://git.openstack.org/cgit/openstack/kingbird-dashboard
+* Source: https://git.openstack.org/cgit/openstack/kingbird-dashboard
 * Bugs: http://bugs.launchpad.net/kingbird-dashboard
 
 Features
